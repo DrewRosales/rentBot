@@ -22,11 +22,9 @@ result = s.get(URL)
 #tree = html.fromstring(result.text)
 #token = list(set(tree.xpath("//input[@name='authenticity_token']/@value")))[0]
 
-
 result = s.post(
         URL,
-        data = payload,
-        headers = dict(referer=URL)
+        data = payload
 )
 
 print(result.url)
