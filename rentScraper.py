@@ -65,6 +65,6 @@ amount = amount[:-1]
 date=re.search(r'(?<=<p class=" u-space-an u-unemphasize js-charge-due">)\s+(.*)\s+',str1)
 date = date.group(0)
 date = date[:-1]
-
+date = re.split("\s", date)[9]
 print(amount)
 print(date)
