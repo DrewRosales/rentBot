@@ -54,4 +54,17 @@ print(result.url)
 
 result1 = s.get(result.url)
 str1 = result1.text
-print(str1)
+
+
+#Retrieve the amount due
+amount=re.search(r'(?<=<p class="balance-info__amount js-balance-info-non-subsidy">)(.*)<',str1)
+amount = amount.group(0)
+amount = amount[:-1]
+
+#Retrieve the due date
+date=re.search(r'(?<=<p class=" u-space-an u-unemphasize js-charge-due">)\s+(.*)\s+',str1)
+date = date.group(0)
+date = date[:-1]
+
+print(amount)
+print(date)
