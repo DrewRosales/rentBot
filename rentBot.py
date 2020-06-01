@@ -1,5 +1,7 @@
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import rentScraper as sc
+
 token = "1145110613:AAFuDGcl_KXOEF_k4eYwjxIKXUzAvG25EEc"
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -11,11 +13,8 @@ def start(update, context):
     message = 'Gathering rent information...'
     update.message.reply_text(message)
 
-def paid(update, context):
-    context.bot.
-
 def rentData():
-
+    amount, date = sc.scrap()
     
 def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
@@ -25,7 +24,7 @@ def main():
     updater = Updater(token, use_context = True)
 
     #Dispatcher to register handlers
-    dp = updater.dispacher
+    dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start"), start)
     dp.add_handler(CommandHandler("paid"), paid)
